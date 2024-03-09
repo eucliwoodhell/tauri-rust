@@ -11,30 +11,25 @@ impl MigrationTrait for Migration {
                 Table::create()
                     .table(User::Table)
                     .if_not_exists()
-                    .col(
-                        ColumnDef::new(User::Id)
-                            .string()
-                            .not_null()
-                            .primary_key(),
-                    )
+                    .col(ColumnDef::new(User::Id).string().not_null().primary_key())
                     .col(ColumnDef::new(User::Username).string().not_null())
                     .col(ColumnDef::new(User::Name).string().not_null())
                     .col(ColumnDef::new(User::Bio).string().null())
                     .col(ColumnDef::new(User::Image).string().null())
                     .col(ColumnDef::new(User::Path).string().null())
                     .col(
-                        ColumnDef::new(Community::CreatedAt)
+                        ColumnDef::new(User::CreatedAt)
                             .timestamp()
                             .default(Expr::current_timestamp()),
                     )
                     .col(
-                        ColumnDef::new(Community::UpdatedAt)
+                        ColumnDef::new(User::UpdatedAt)
                             .timestamp()
                             .default(Expr::current_timestamp()),
                     )
-                    .col(ColumnDef::new(Community::DeletedAt).timestamp())
+                    .col(ColumnDef::new(User::DeletedAt).timestamp())
                     .col(
-                        ColumnDef::new(Community::State)
+                        ColumnDef::new(User::State)
                             .boolean()
                             .not_null()
                             .default(false),

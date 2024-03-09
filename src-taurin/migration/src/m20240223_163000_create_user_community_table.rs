@@ -20,18 +20,18 @@ impl MigrationTrait for Migration {
                             .not_null(),
                     )
                     .col(
-                        ColumnDef::new(Community::CreatedAt)
+                        ColumnDef::new(UserCommunity::CreatedAt)
                             .timestamp()
                             .default(Expr::current_timestamp()),
                     )
                     .col(
-                        ColumnDef::new(Community::UpdatedAt)
+                        ColumnDef::new(UserCommunity::UpdatedAt)
                             .timestamp()
                             .default(Expr::current_timestamp()),
                     )
-                    .col(ColumnDef::new(Community::DeletedAt).timestamp())
+                    .col(ColumnDef::new(UserCommunity::DeletedAt).timestamp())
                     .col(
-                        ColumnDef::new(Community::State)
+                        ColumnDef::new(UserCommunity::State)
                             .boolean()
                             .not_null()
                             .default(false),

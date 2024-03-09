@@ -24,18 +24,18 @@ impl MigrationTrait for Migration {
                             .not_null(),
                     )
                     .col(
-                        ColumnDef::new(Community::CreatedAt)
+                        ColumnDef::new(ThreadCommunity::CreatedAt)
                             .timestamp()
                             .default(Expr::current_timestamp()),
                     )
                     .col(
-                        ColumnDef::new(Community::UpdatedAt)
+                        ColumnDef::new(ThreadCommunity::UpdatedAt)
                             .timestamp()
                             .default(Expr::current_timestamp()),
                     )
-                    .col(ColumnDef::new(Community::DeletedAt).timestamp())
+                    .col(ColumnDef::new(ThreadCommunity::DeletedAt).timestamp())
                     .col(
-                        ColumnDef::new(Community::State)
+                        ColumnDef::new(ThreadCommunity::State)
                             .boolean()
                             .not_null()
                             .default(false),
